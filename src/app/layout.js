@@ -13,6 +13,7 @@ const inter = Inter({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata = {
@@ -22,23 +23,19 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
+        suppressHydrationWarning
         className={`${inter.variable} ${geistMono.variable} antialiased bg-[#f5f5f5]`}
       >
         <div className="flex min-h-screen flex-col">
-          
-          {/* Header */}
           <Header />
 
-          {/* Main Content */}
           <main className="flex-1">
             {children}
           </main>
 
-          {/* Footer */}
           {/* <Footer /> */}
-
         </div>
       </body>
     </html>
